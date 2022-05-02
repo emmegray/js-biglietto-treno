@@ -16,10 +16,10 @@ function arrotonda(cifra) {
 
 function calcolaPrezzo(km, anni) {
     if (numeroNonValido(km)) {
-        return "Inserire km in numeri";
+        return "Valore non valido. Inserire km in numeri!";
     }
     if (numeroNonValido(anni)) {
-        return "Inserire età in numeri";
+        return "Valore non valido. Inserire età in numeri!";
     }
 
     const prezzoKm = 0.21;
@@ -36,14 +36,13 @@ function calcolaPrezzo(km, anni) {
     const prezzo = prezzoLordo - sconto;
     const prezzoArrotondato = arrotonda(prezzo);
     return prezzoArrotondato+"&euro;";
+    
 }
 
 const km = prompt("Inserisci km");
 const anni = prompt("Inserisci età");
 const risultato = calcolaPrezzo(km, anni);
 
-const elementoRisultato = document.getElementById("prezzo")
+const elementoRisultato = document.getElementById("risultato")
 
-elementoRisultato.innerHTML = risultato;
-
-if (numeroNonValido(km) || numeroNonValido(anni)) elementoRisultato.style.color = "red";
+elementoRisultato.innerHTML = `Il prezzo del bigletto è di ${risultato} Buon viaggio!`;
